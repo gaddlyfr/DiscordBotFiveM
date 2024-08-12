@@ -116,10 +116,12 @@ async def zone(ctx, *args: discord.Member):
             areas[str(member.id)] += per_money
         else:
             areas[str(member.id)] = per_money
+    await ctx.send(f"Rozdzielono po {per_money} na osobe")
 
 @client.command()
 async def reset(ctx, *args: discord.Member):
     for member in args:
         areas[str(member.id)] = 0
+    ctx.send("Zresetowano pieniadze do zera dla kazdej osoby")
 
 client.run('')
